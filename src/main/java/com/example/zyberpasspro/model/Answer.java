@@ -1,6 +1,8 @@
 package com.example.zyberpasspro.model;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import org.eclipse.persistence.jpa.jpql.parser.DateTime;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -72,11 +74,11 @@ public class Answer {
         this.created_date = created_date;
     }
 
-    public LocalDateTime getModified_datetime() {
+    public Date getModified_datetime() {
         return modified_datetime;
     }
 
-    public void setModified_datetime(LocalDateTime modified_datetime) {
+    public void setModified_datetime(Date modified_datetime) {
         this.modified_datetime = modified_datetime;
     }
 
@@ -84,9 +86,11 @@ public class Answer {
     private String answer;
     private String status;
     private Date created_date;
-    private LocalDateTime modified_datetime;
 
-    public Answer(Long id, String user_id, String quizid, String questionid, String answer, String status, Date created_date, LocalDateTime modified_date) {
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private Date modified_datetime;
+
+    public Answer(Long id, String user_id, String quizid, String questionid, String answer, String status, Date created_date, Date modified_date) {
         this.id = id;
         this.user_id = user_id;
         this.quizid = quizid;

@@ -1,4 +1,5 @@
 package com.example.zyberpasspro.model;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import org.eclipse.persistence.jpa.jpql.parser.DateTime;
 
@@ -21,6 +22,7 @@ public class Files {
     private String regstatus;
     private String user_type;
     private Date created_date;
-    private LocalDateTime modified_datetime;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private Date modified_datetime;
 
 }

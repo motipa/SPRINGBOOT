@@ -1,4 +1,5 @@
 package com.example.zyberpasspro.model;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -18,7 +19,8 @@ public class SubCategory {
     private String noofquestions;
     private String status;
     private Date created_date;
-    private LocalDateTime modified_datetime;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private Date modified_datetime;
     private String regstatus;
     private int coins;
     private int option1;

@@ -1,4 +1,5 @@
 package com.example.zyberpasspro.model;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 
@@ -23,6 +24,7 @@ public class Admin {
     private String password;
     private String status;
     private Date created_datetime ;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date modified_date;
     private Date last_login_datetime;
     private String phone;
